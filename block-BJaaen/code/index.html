@@ -4,8 +4,54 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock Paper and Scissors</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/4b4a150b01.js" crossorigin="anonymous"></script>
   </head>
   <body>
+    <div class="container">
+      <h1>
+        Rock Paper Scissors Lizard Spock
+      </h1>
+      <div class="user">
+        <h2>You - 0</h2>
+          <button class="user-btn rock">
+            <!-- Rock -->
+            <i class="fa fa-hand-rock-o" aria-hidden="true" id="player-rock"></i>
+          </button>
+          <button class="user-btn paper">
+            <!-- Paper -->
+            <i class="fa fa-hand-paper-o" aria-hidden="true" id="player-paper"></i>
+          </button>
+          <button class="user-btn scissor">
+            <!-- Scissors -->
+          <i class="fa fa-hand-scissors-o" aria-hidden="true" id="player-scissor"></i>
+          </button>   
+      </div>
+
+      <div class="computer">
+        <h2>Computer - 0</h2>
+          <button class="computer-btn">
+            <!-- Rock -->
+            <i class="fa fa-hand-rock-o" aria-hidden="true" id="computer-rock"></i>
+          </button>
+          <button class="computer-btn">
+            <!-- Paper -->
+            <i class="fa fa-hand-paper-o" aria-hidden="true" id="computer-paper"></i>
+          </button>
+          <button class="computer-btn">
+            <!-- Scissors -->
+          <i class="fa fa-hand-scissors-o" aria-hidden="true" id="computer-scissor"></i>
+          </button>   
+      </div>
+
+      <button class="reset">
+        <i class="fas fa-sync-alt" aria-hidden="true"></i>
+      </button>
+
+      <h3>
+
+      </h3>
+    </div>
     <script src="./script.js"></script>
   </body>
 </html>
