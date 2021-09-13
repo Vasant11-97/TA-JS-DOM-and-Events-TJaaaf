@@ -1,59 +1,50 @@
-let form = document.querySelector('form');
-let output = document.querySelector('.output');
+let form = document.querySelector("form");
+let modal = document.querySelector(".modal_overlay");
+let modalinfo = document.querySelector(".modal_info");
 
-let userInfo = {};
+let userData = {};
 
-function eventHandler(event){
+form.addEventListener("submit",(event) => {
     event.preventDefault();
-    console.log(event);
-    userInfo.name = form.elements.text.value;
-    userInfo.emailtext = form.elements.emailtext.value;
-    userInfo.movie = form.elements.gender.value;
-    userInfo.color = form.elements.color.value;
-    userInfo.rating = form.elements.range.value;
-    userInfo.drone = form.elements.drone.value;
-    userInfo.terms = form.elements.terms.checked;
-    console.log(userInfo);
-    displayForm();
-}
-
-form.addEventListener("submit", eventHandler);
-
-function displayForm(){
-
-    let div = document.createElement('div');
-    div.classList.add('main-div');
-
-    let cross = document.createElement('i')
-    cross.innerHTML = `<i class="fas fa-times"></i>`
-    cross.classList.add('cross')
-    cross.addEventListener('click',()=> {
-        div.style.display = 'none'
-    })
-
-    let name = document.createElement('h2');
-    name.innerHtml = `Your name is ${userInfo.name}`;
-
-    let email = document.createElement('h2');
-    email.innerHTML = `Your email id is ${userInfo.email}`;
-
-    let movie = document.createElement('h2');
-    email.innerHTML = `Your movie is ${userInfo.movie}`;
-
-    let color = document.createElement('h2');
-    email.innerHTML = `Your color is ${userInfo.color}`;
-
-    let rating = document.createElement('h2');
-    email.innerHTML = `Your rating is ${userInfo.rating}`;
-
-    let drone = document.createElement('h2');
-    email.innerHTML = `Your drone is ${userInfo.drone}`;
-
-    let terms = document.createElement('h2');
-    email.innerHTML = `Your terms is ${userInfo.terms}`;
-
-    div.append(name,email,movie,color,rating,drone,terms);
-    output.append(div);
+    let elements = event.target.elements;
+    userData.name = elements.name.value;
+    userData.emailtext = elements.emailtext.value;
+    userData.movie = elements.gender.value;
+    userData.color = elements.color.value;
+    userData.rating = elements.range.value;
+    userData.drone = elements.drone.value;
+    userData.terms = elements.terms.value;
     
+    modal.classList.add("open");
+
+    // let close = document.querySelector("modal_close");
+    // close.addEventListener('click', () => {
+    //     modal.classList.remove("open");
+    // })
+
+    displayForm(userData);
+});
+
+
+function displayForm(data = {}){
+    modalinfo.innerHTML = "";
+    let name = document.createElement('h2');
+    name.innerText = `Hello ${data.name}`;
+    let email = document.createElement('p');
+    email.innerText = `Email : ${data.emailtext}`;
+    let movie = document.createElement('p');
+    movie.innerText = `Movie : ${data.movie}`;
+    let color = document.createElement('p');
+    color.innerText = `Color : ${data.color}`;
+    let rating = document.createElement('p');
+    rating.innerText = `Rating : ${data.rating}`;
+    let drone = document.createElement('p');
+    drone.innerText = `Drone : ${data.drone}`;
+    let terms = document.createElement('p');
+    terms.innerText = `Terms : ${data.terms}`;
+
+
+    modalinfo.append(name,email,movie,color,rating,drone,terms);    
+    // modalinfo.append(name);
 
 }
