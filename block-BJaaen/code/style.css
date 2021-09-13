@@ -49,6 +49,16 @@ table {
 
 /* Custom style */
 
+.flex {
+    display: flex;
+}
+
+.selected {
+    background-color: rgb(180, 87, 87);
+    width: 2rem;
+    height: 2rem;
+}
+
 .container{
     width: 40%;
     margin: 0 auto;
