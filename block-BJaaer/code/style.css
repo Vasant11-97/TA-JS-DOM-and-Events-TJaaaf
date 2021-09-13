@@ -91,3 +91,10 @@ input[type='text'] {
 .terms {
   display: inline-block;
 }
+
+.open {
+  width: 20rem;
+  background-color: aliceblue;
+  position: absolute;
+  margin-left: 17rem;
+}
