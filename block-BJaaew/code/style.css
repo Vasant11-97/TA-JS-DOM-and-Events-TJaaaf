@@ -58,7 +58,7 @@ body {
 header{
   text-align: center;
   padding: 2rem 0;
-  background: linear-gradient(to right, #7f53ac 0, #657ced 100%);
+  background-color: burlywood;
 }
 h1{
   font-size: 2rem;
@@ -83,9 +83,9 @@ input[type="search"]{
 .box{
   flex: 0 1 30%;
   padding: 2rem 2rem;
-  background-color: rgb(143, 205, 241);
+  background-color: lightblue;
   margin: 1rem;
-  border-radius: .7rem;
+  border-radius: .5rem;
   
 }
 img{
@@ -120,15 +120,9 @@ ul{
   
 }
 li{
-  /* display: flex; */
   padding: .6rem 1rem;
-  background-color: black;
+  background-color: pink;
   color: white;
   margin: .6rem;
   border-radius: .5rem;
-}
-li:hover{
-  background-color: white;
-  color: black;
-  border: 2px solid black;
 }
