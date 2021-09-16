@@ -1,6 +1,10 @@
 function main(){
     let inputText = document.querySelector('#text');
-let root = document.querySelector('ul');
+    let root = document.querySelector('ul');
+    let active = document.querySelector('.active');
+    let completed = document.querySelector('.completed');
+    let clear = document.querySelector('.clear');
+    let all = document.querySelector('.all');
 
 let allTodos = [];
 
@@ -14,7 +18,7 @@ function handleInput(event){
         allTodos.push(todo);
         event.target.value = "";
 
-        createUI(allTodos,root);
+        createUI();
     }
 }
 
@@ -22,27 +26,27 @@ function handleDelete(event) {
     let id = event.target.dataset.id;
     allTodos.splice(id, 1);
      
-    createUI(allTodos,root);
+    createUI();
 }
 
 function handleToggle(event){
     let id = event.target.dataset.id;
     allTodos[id].isDone = !allTodos[id].isDone;
 
-    createUI(allTodos, root);
+    createUI();
 }
 
 function activeTodo(event){
-    createUI(allTodos, root);
+    createUI();
 }
 
 function completedTodo(event){
-    createUI(allTodos, root);
+    createUI();
 }
 
 
-function createUI(data, rootElm){
-    rootElm.innerHTML = "";
+function createUI(data = allTodos){
+    root.innerHTML = "";
     data.forEach((todo, index) => {
         let li = document.createElement('li');
         li.style.display = "flex";
@@ -63,19 +67,35 @@ function createUI(data, rootElm){
 
         span.addEventListener('click', handleDelete);
 
-        let active = document.querySelector('active');
-        active.addEventListener('click', activeTodo);
-        let completed = document.querySelector('completed');
-        completed.addEventListener('click', completedTodo)
-
         li.append(input, p, span);
-        rootElm.append(li);
+        root.append(li);
     });
 
     
 }
 
-createUI(allTodos, root);
+createUI();
+
+clear.addEventListener('click', () => {
+    allTodos = allTodos.filter((todo) => !todo.isDone);
+    createUI();
+});
+
+completed.addEventListener('click', () => {
+    let Completed = allTodos.filter((todo) => todo.isDone);
+    createUI(Completed);
+})
+
+
+active.addEventListener('click', () => {
+    let unCompleted = allTodos.filter((todo) => !todo.isDone);
+    createUI(unCompleted);
+})
+
+all.addEventListener('click',() => {
+    let everyThing = allTodos.map((todo) => todo);
+    createUI(everyThing);
+})
 
 inputText.addEventListener("keyup", handleInput);
 }
